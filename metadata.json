@@ -1,0 +1,6 @@
+{
+  "name": "SerialPulse 串口调试与波形分析工作台",
+  "description": "面向嵌入式开发者的深色主题串口/TCP/UDP调试桌面应用，支持多协议解析、实时多视图数据波形显示、JS脚本插件扩展及Ctrl+F高速检索。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

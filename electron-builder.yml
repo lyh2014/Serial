@@ -1,0 +1,28 @@
+appId: com.serialpulse.workbench
+productName: SerialPulse
+copyright: Copyright © 2026 SerialPulse
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+  artifactName: "${productName}-${version}-${os}-${arch}-${target}.${ext}"
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: SerialPulse 串口调试助手
+portable:
+  artifactName: "${productName}-Portable-${version}-${arch}.${ext}"

@@ -1,0 +1,40 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests & typecheck
+        run: |
+          npx --yes tsx --test src/core/protocols.test.ts src/core/pluginEngine.test.ts
+          npm run lint
+
+      - name: Build Windows Installer & Portable EXE
+        run: npm run dist:win
+
+      - name: Upload Windows EXE Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: SerialPulse-Windows-x64
+          path: |
+            release/*.exe
+          if-no-files-found: error
