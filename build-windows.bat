@@ -13,7 +13,7 @@ if errorlevel 1 (
 )
 
 echo [1/3] 安装依赖包 (npm install)...
-call npm install
+call npm install --legacy-peer-deps --no-audit --no-fund
 if errorlevel 1 (
   echo [错误] 依赖安装失败，请检查网络连接或 npm 镜像源。
   pause

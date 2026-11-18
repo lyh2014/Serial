@@ -1,9 +1,9 @@
 appId: com.serialpulse.workbench
 productName: SerialPulse
 copyright: Copyright © 2026 SerialPulse
+npmRebuild: false
 directories:
   output: release
-  buildResources: build
 files:
   - dist/**/*
   - electron/**/*
